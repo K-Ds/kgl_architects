@@ -17,7 +17,7 @@ const FooterSection = styled.div`
     flex-direction: column;
     align-items: start;
     color: ${props => props.theme.light}
-`;
+`;  
 
 const FooterItem = styled.a`
     cursor: pointer;

@@ -1,8 +1,12 @@
-import Navbar from './components/Navbar';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import styled from 'styled-components';
-import Footer from './components/Footer';
-import WidthContainer from './components/WidthContainer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Gallery from './pages/Gallery';
+import Certifications from './pages/Certifications';
+import Contact from './pages/Contact';
+import Project from './pages/Project';
+import Projects from './pages/Projects';
+import HomeLayout from './layout/HomeLayout';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -18,24 +22,26 @@ const lightTheme = {
   background: '#fff',
 };
 
-const Container = styled.div`
-  height: 100vh;
-  background-color: ${(props) => props.theme.background};
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 function App() {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <GlobalStyle />
-      <Container>
-        <WidthContainer>{Navbar}</WidthContainer>
-        {Footer}
-      </Container>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={lightTheme}>
+        <GlobalStyle />
+
+        <Routes>
+          <Route path="/" element={<HomeLayout />}>
+            <Route index element={<Home />} />
+            <Route path="gallery" element={<Gallery />} />
+            <Route path="projects">
+              <Route index element={<Projects />} />
+              <Route path=":id" element={<Project />} />
+            </Route>
+            <Route path="certs" element={<Certifications />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
+    </Router>
   );
 }
 
