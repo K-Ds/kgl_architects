@@ -5,14 +5,7 @@ import { StyledIconBase } from '@styled-icons/styled-icon'
 import { ArrowRight, ArrowLeft } from "@styled-icons/bootstrap";
 import SectionTitle from '../SectionTitle';
 import Button from '../Button';
-
-const projects = [
-    { id: "1", title: 'Aetherium Pavilion', url: 'https://cdn.pixabay.com/photo/2016/06/24/10/47/house-1477041_1280.jpg' },
-    { id: "2", title: 'Elysian Nexus Center', url: 'https://cdn.pixabay.com/photo/2015/11/17/18/59/architecture-1048092_1280.jpg' },
-    { id: "3", title: 'Quantum Arcology', url: 'https://cdn.pixabay.com/photo/2014/02/25/22/06/staircase-274614_1280.jpg' },
-    { id: "4", title: 'Lumina Tower', url: 'https://cdn.pixabay.com/photo/2017/04/24/13/37/architecture-2256489_1280.jpg' },
-];
-
+import projects from '../../api/Projects';
 
 const CarouselContainer = styled.div`
     display:flex;
