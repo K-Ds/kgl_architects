@@ -3,6 +3,7 @@ import SectionTitle from '../components/SectionTitle';
 import PageContainer from './../components/PageContainer';
 import projects from './../api/Projects';
 import ProjectCard from '../components/projects/ProjectCard';
+import PageTitle from '../components/PageTitle';
 
 
 const SectionList = styled.div`
@@ -15,7 +16,7 @@ const SectionList = styled.div`
 const Projects = () => {
     return (
         <PageContainer>
-            <SectionTitle>Our Projects</SectionTitle>
+            <PageTitle>Our Projects</PageTitle>
             <SectionList>
                 {projects.map(project => <ProjectCard key={project.id} project={project} />)}
             </SectionList>
