@@ -63,6 +63,7 @@ const Footer = <FooterContainer>
                 <FooterItem>Twitter</FooterItem>
                 <FooterItem>Instagram</FooterItem>
                 <FooterItem>Linkedin</FooterItem>
+                <a href="https://storyset.com/people">People illustrations by Storyset</a>
             </FooterSection>
         </FooterOrganization>
     </WidthContainer>
