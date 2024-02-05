@@ -7,6 +7,11 @@ import Contact from './pages/Contact';
 import Project from './pages/Project';
 import Projects from './pages/Projects';
 import HomeLayout from './layout/HomeLayout';
+import ScrollToTop from './utils/ScrollToTop';
+import { AppContext } from './Context';
+import { useEffect, useState } from 'react';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from './utils/firebase';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -23,23 +28,36 @@ const lightTheme = {
 };
 
 function App() {
+  const [projects, setProjects] = useState([]);
+  useEffect(
+    () =>
+      onSnapshot(collection(db, 'Projects'), (snapshot) => {
+        setProjects(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      }),
+    []
+  );
+
   return (
     <Router>
+      <ScrollToTop />
       <ThemeProvider theme={lightTheme}>
         <GlobalStyle />
-
-        <Routes>
-          <Route path="/" element={<HomeLayout />}>
-            <Route index element={<Home />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="projects">
-              <Route index element={<Projects />} />
-              <Route path=":id" element={<Project />} />
+        <AppContext.Provider value={{ projects: projects }}>
+          <Routes>
+            <Route path="/" element={<HomeLayout />}>
+              <Route index element={<Home />} />
+              <Route path="gallery" element={<Gallery />} />
+              <Route path="projects">
+                <Route index element={<Projects />} />
+                <Route path=":id" element={<Project />} />
+              </Route>
+              <Route path="certs" element={<Certifications />} />
+              <Route path="contact" element={<Contact />} />
             </Route>
-            <Route path="certs" element={<Certifications />} />
-            <Route path="contact" element={<Contact />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </AppContext.Provider>
       </ThemeProvider>
     </Router>
   );

@@ -2,7 +2,8 @@ import styled from "styled-components";
 import PageContainer from './../components/PageContainer';
 import PageTitle from './../components/PageTitle';
 import { useParams } from 'react-router';
-import projects from './../api/Projects';
+import { AppContext } from '../Context';
+import { useContext } from 'react';
 
 
 const Container = styled.div`
@@ -22,7 +23,9 @@ const ImageContainer = styled.div`
     }
 `;
 const TextContainer = styled.div`
-    width: 50%
+    width: 50%;
+    line-height:1.5rem;
+   font-size:1.1rem;
 `;
 
 const Grid = styled.div`
@@ -39,6 +42,7 @@ const Grid = styled.div`
 
 const Project = (props) => {
     const { id } = useParams();
+    const { projects } = useContext(AppContext);
 
     const project = projects.find(project => project.id === id);
 
@@ -46,10 +50,10 @@ const Project = (props) => {
         <PageContainer>
             <PageTitle>{project?.title}</PageTitle>
             <Container>
-                <ImageContainer><img src={project?.cover} /></ImageContainer>
-                <TextContainer>{project?.description}</TextContainer>
+                <ImageContainer><img src={project?.cover} alt={project?.title} /></ImageContainer>
+                <TextContainer>{project?.summary}</TextContainer>
             </Container>
-            <Grid>{project.images}</Grid>
+            <Grid>{project?.images}</Grid>
         </PageContainer>
     )
 }

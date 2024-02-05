@@ -57,7 +57,7 @@ const ProjectCard = ({ project }) => {
     return (
         <Container>
             <ImageContainer>
-                <img src={project.cover} alt={project.title} />
+                <img src={project?.cover} alt={project.title} />
             </ImageContainer>
             <Details>
                 <Title>{project?.title}</Title>

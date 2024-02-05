@@ -18,11 +18,13 @@ const Accent = styled.span`
 
 
 const PageTitle = ({ children }) => {
-    const [accent, title] = children?.split(' ');
+    const match = children?.match(/^(\S+)\s(.*)$/);
+
+
 
     return (
         <Title>
-            <Accent>{accent}</Accent>  {title}
+            <Accent>{match[1]}</Accent>  {match[2]}
         </Title>
     )
 };

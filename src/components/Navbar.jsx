@@ -10,9 +10,6 @@ const navItems = [
     { name: "Contacts", to: "contact" },
 ];
 
-const selected = "projects";
-
-
 const NavContainer = styled.div`
     display:flex;
     width: 100%;

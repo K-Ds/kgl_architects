@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import SectionTitle from '../components/SectionTitle';
 import PageContainer from './../components/PageContainer';
-import projects from './../api/Projects';
 import ProjectCard from '../components/projects/ProjectCard';
 import PageTitle from '../components/PageTitle';
+import { AppContext } from './../Context';
+import { useContext } from 'react';
 
 
 const SectionList = styled.div`
@@ -14,11 +14,12 @@ const SectionList = styled.div`
 `;
 
 const Projects = () => {
+    const { projects } = useContext(AppContext);
     return (
         <PageContainer>
             <PageTitle>Our Projects</PageTitle>
             <SectionList>
-                {projects.map(project => <ProjectCard key={project.id} project={project} />)}
+                {projects?.map(project => <ProjectCard key={project.id} project={project} />)}
             </SectionList>
         </PageContainer>
     )

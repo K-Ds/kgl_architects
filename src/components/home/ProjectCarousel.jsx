@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import Slider from "react-slick";
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { StyledIconBase } from '@styled-icons/styled-icon'
 import { ArrowRight, ArrowLeft } from "@styled-icons/bootstrap";
 import SectionTitle from '../SectionTitle';
 import Button from '../Button';
-import projects from '../../api/Projects';
+import { AppContext } from '../../Context';
+
 
 const CarouselContainer = styled.div`
     display:flex;
@@ -81,7 +82,7 @@ const Buttons = styled.div`
 const ProjectCarousel = () => {
     const [carouselIndex, setCarouselIndex] = useState(0);
     const sliderRef = useRef(null);
-
+    const { projects } = useContext(AppContext);
     const carouselSettings = {
         infinite: false,
         swipeToSlide: true,
@@ -103,13 +104,11 @@ const ProjectCarousel = () => {
         }
     };
 
-    const handleProjectNav = (id) => { };
-
     return (
         <CarouselContainer>
             <CarouselDetails>
                 <SectionTitle>PROJECT</SectionTitle>
-                <CarouselText>{projects[carouselIndex].title}</CarouselText>
+                <CarouselText>{projects[carouselIndex]?.title}</CarouselText>
                 <Buttons>
                     <ButtonContainer onClick={previous}>
                         <ArrowLeft />
@@ -121,7 +120,7 @@ const ProjectCarousel = () => {
             </CarouselDetails>
             <CarouselImages>
                 <Slider ref={sliderRef} {...carouselSettings}>
-                    {projects.map(project =>
+                    {projects?.map(project =>
                         <CarouselImageContainer key={project.id}>
                             <CarouselImage src={project.cover} alt={project.title} />
                             <CarouselImageLabel>
