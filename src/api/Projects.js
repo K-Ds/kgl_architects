@@ -26,6 +26,8 @@ const projects = [
       'https://cdn.pixabay.com/photo/2014/02/25/22/06/staircase-274614_1280.jpg',
     description:
       'The Quantum Arcology reimagines urban living through a revolutionary approach to architecture. This towering structure seamlessly integrates residential, commercial, and green spaces into a cohesive whole, fostering a sustainable and vibrant community. With its cascading terraces and futuristic design, the Quantum Arcology challenges traditional notions of city planning, offering a glimpse into a harmonious future where people and nature coexist in perfect equilibrium.',
+    summary:
+      "Step into the future with the Quantum Arcology, a groundbreaking marvel that transforms urban living. This towering structure defies conventional city planning, seamlessly blending residential, commercial, and green spaces to create a sustainable and vibrant community. The Quantum Arcology's cascading terraces and futuristic design provide a glimpse into a harmonious future where humanity and nature coexist in perfect balance, reshaping our understanding of urban landscapes.",
   },
   {
     id: '4',
@@ -34,6 +36,8 @@ const projects = [
       'https://cdn.pixabay.com/photo/2017/04/24/13/37/architecture-2256489_1280.jpg',
     description:
       'The Lumina Tower stands tall as an architectural marvel, defining the city skyline with its distinctive silhouette. This iconic structure seamlessly combines form and function, featuring state-of-the-art facilities within a visually stunning exterior. As the sun sets, the tower comes to life, illuminated by an intricate play of lights that captivates onlookers. The Lumina Tower is not just a building; it is a symbol of innovation, sophistication, and the limitless possibilities of modern architecture.',
+    summary:
+      'Enter the realm of architectural sophistication with the Lumina Tower, an iconic structure that dominates the city skyline with its distinctive silhouette. Seamlessly blending form and function, this marvel features state-of-the-art facilities within a visually stunning exterior. As the sun sets, the Lumina Tower comes alive with an intricate play of lights, captivating onlookers and solidifying its status as a symbol of innovation. More than just a building, the Lumina Tower represents the boundless possibilities of modern architecture, where aesthetics and functionality unite to redefine urban landscapes.',
   },
   {
     id: '5',

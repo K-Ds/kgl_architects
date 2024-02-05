@@ -2,7 +2,8 @@ import styled from "styled-components";
 import SectionTitle from '../SectionTitle';
 import { ArrowRight } from "@styled-icons/bootstrap";
 import Button from '../Button';
-import projects from '../../api/Projects';
+import { AppContext } from './../../Context';
+import { useContext } from 'react';
 
 const Container = styled.div`
     margin-block: 2rem;
@@ -52,14 +53,15 @@ const LabelIcon = styled(ArrowRight)`
 
 
 const Gallery = () => {
+    const { projects } = useContext(AppContext);
     return (
         <Container>
             <SectionTitle>Gallery</SectionTitle>
             <Grid>
-                <ShortGridItem><GridImage src={projects[3].cover} /></ShortGridItem>
-                <LongGridItem><GridImage src={projects[0].cover} /></LongGridItem>
-                <ShortGridItem><GridImage src={projects[2].cover} /></ShortGridItem>
-                <LongGridItem><GridImage src={projects[1].cover} /></LongGridItem>
+                <ShortGridItem><GridImage src={projects[3]?.cover} /></ShortGridItem>
+                <LongGridItem><GridImage src={projects[0]?.cover} /></LongGridItem>
+                <ShortGridItem><GridImage src={projects[2]?.cover} /></ShortGridItem>
+                <LongGridItem><GridImage src={projects[1]?.cover} /></LongGridItem>
             </Grid>
             <Button primary href="/gallery">
                 <LabelText>Go To Gallery</LabelText>
