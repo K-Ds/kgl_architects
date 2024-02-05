@@ -56,12 +56,12 @@ const Gallery = () => {
         <Container>
             <SectionTitle>Gallery</SectionTitle>
             <Grid>
-                <ShortGridItem><GridImage src={projects[3].url} /></ShortGridItem>
-                <LongGridItem><GridImage src={projects[0].url} /></LongGridItem>
-                <ShortGridItem><GridImage src={projects[2].url} /></ShortGridItem>
-                <LongGridItem><GridImage src={projects[1].url} /></LongGridItem>
+                <ShortGridItem><GridImage src={projects[3].cover} /></ShortGridItem>
+                <LongGridItem><GridImage src={projects[0].cover} /></LongGridItem>
+                <ShortGridItem><GridImage src={projects[2].cover} /></ShortGridItem>
+                <LongGridItem><GridImage src={projects[1].cover} /></LongGridItem>
             </Grid>
-            <Button primary>
+            <Button primary href="/gallery">
                 <LabelText>Go To Gallery</LabelText>
                 <LabelIcon />
             </Button>

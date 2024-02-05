@@ -20,7 +20,7 @@ const Gallery = () => {
         <PageContainer>
             <PageTitle>Photo Gallery</PageTitle>
             <Grid>
-                {projects.map((project) => <img key={project.id} src={project.url} alt={project.title} />)}
+                {projects.map((project) => <img key={project.id} src={project.cover} alt={project.title} />)}
             </Grid>
         </PageContainer>
     )

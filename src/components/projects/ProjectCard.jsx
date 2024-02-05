@@ -57,12 +57,12 @@ const ProjectCard = ({ project }) => {
     return (
         <Container>
             <ImageContainer>
-                <img src={project.url} alt={project.title} />
+                <img src={project.cover} alt={project.title} />
             </ImageContainer>
             <Details>
                 <Title>{project?.title}</Title>
                 <Text>{project?.description}</Text>
-                <Button background>
+                <Button background href={`/projects/${project?.id}`}>
                     <BtnText>View Details</BtnText>
                     <BtnIcon />
                 </Button>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Brand from './BrandLarge';
 import WidthContainer from './WidthContainer';
+import { Link } from 'react-router-dom';
 
 const FooterContainer = styled.div`
     display: flex;
@@ -19,9 +20,11 @@ const FooterSection = styled.div`
     color: ${props => props.theme.light}
 `;  
 
-const FooterItem = styled.a`
+const FooterItem = styled(Link)`
     cursor: pointer;
     padding-block: 1rem;
+    color: ${props => props.theme.light};
+    text-decoration: none;
 `;
 
 const FooterHeader = styled.span`
@@ -48,10 +51,10 @@ const Footer = <FooterContainer>
             </FooterSection>
             <FooterSection>
                 <FooterHeader>Information</FooterHeader>
-                <FooterItem>Home</FooterItem>
-                <FooterItem>Projects</FooterItem>
-                <FooterItem>Gallery</FooterItem>
-                <FooterItem>Certifications</FooterItem>
+                <FooterItem to=''>Home</FooterItem>
+                <FooterItem to='projects'>Projects</FooterItem>
+                <FooterItem to='gallery'>Gallery</FooterItem>
+                <FooterItem to='certs'>Certifications</FooterItem>
             </FooterSection>
             <FooterSection>
                 <FooterHeader>Contact Us</FooterHeader>
@@ -63,9 +66,9 @@ const Footer = <FooterContainer>
                 <FooterItem>Twitter</FooterItem>
                 <FooterItem>Instagram</FooterItem>
                 <FooterItem>Linkedin</FooterItem>
-                <a href="https://storyset.com/people">People illustrations by Storyset</a>
             </FooterSection>
         </FooterOrganization>
+        <FooterItem to="https://storyset.com/people">Illustrations by Storyset</FooterItem>
     </WidthContainer>
 </FooterContainer>;
 

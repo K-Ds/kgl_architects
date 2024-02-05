@@ -123,9 +123,9 @@ const ProjectCarousel = () => {
                 <Slider ref={sliderRef} {...carouselSettings}>
                     {projects.map(project =>
                         <CarouselImageContainer key={project.id}>
-                            <CarouselImage src={project.url} alt={project.title} />
+                            <CarouselImage src={project.cover} alt={project.title} />
                             <CarouselImageLabel>
-                                <Button onClick={() => handleProjectNav(project.id)} background>
+                                <Button href={`/projects/${project.id}`} background>
                                     <LabelText>VIEW PROJECT</LabelText>
                                     <LabelIcon />
                                 </Button>

@@ -1,5 +1,17 @@
 import styled from "styled-components";
 import Brand from './Brand';
+import { NavLink as Link } from 'react-router-dom';
+
+const navItems = [
+    { name: "Home", to: "" },
+    { name: "Projects", to: "projects" },
+    { name: "Gallery", to: "gallery" },
+    { name: "Certifications", to: "certs" },
+    { name: "Contacts", to: "contact" },
+];
+
+const selected = "projects";
+
 
 const NavContainer = styled.div`
     display:flex;
@@ -9,12 +21,15 @@ const NavContainer = styled.div`
     align-items: center;
 `;
 
-const NavItem = styled.span`
+const NavItem = styled(Link)`
     color: ${props => props.theme.primary};
     border-block: ${props => props.$selected ? `2px solid ${props.theme.primary}` : `none`};
     padding-inline: 1rem;
     padding-block: 0.5rem;
     letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
 `
 
 const NavList = styled.div`
@@ -22,6 +37,10 @@ const NavList = styled.div`
     padding-left: 1rem;
     column-gap: 1rem;
     align-items: center;
+
+    a.active{
+       border-block: ${props => `2px solid ${props.theme.primary}`};
+    }
 `;
 
 
@@ -30,11 +49,7 @@ const Navbar =
     <NavContainer>
         {Brand}
         <NavList>
-            <NavItem>HOME</NavItem>
-            <NavItem>PROJECTS</NavItem>
-            <NavItem $selected>GALLERY</NavItem>
-            <NavItem>CERTIFICATIONS</NavItem>
-            <NavItem>CONTACT US</NavItem>
+            {navItems.map(navItem => <NavItem key={navItem.name} to={navItem.to} >{navItem.name}</NavItem>)}
         </NavList>
     </NavContainer>
 
